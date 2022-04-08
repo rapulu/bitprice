@@ -61,7 +61,9 @@ func main() {
 	ERL := widget.NewLabel("")
 	GCL := widget.NewLabel("")
 	GRL := widget.NewLabel("")
-	
+	getPrice := widget.NewButton("Get latest price", func() {
+		worker(UCL, URL, ECL, ERL, GCL, GRL)
+	})
 	worker(UCL, URL, ECL, ERL, GCL, GRL)
 
 	w.SetContent(
@@ -71,6 +73,7 @@ func main() {
 				container.NewVBox(UCL, ECL, GCL),
 				container.NewVBox(URL, ERL, GRL),
 			),
+			getPrice,
 		),
 	)
 	go func ()  {
