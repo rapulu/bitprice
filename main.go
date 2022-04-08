@@ -55,6 +55,8 @@ func main() {
 	w.Resize(fyne.NewSize(400, 400))
 	img := canvas.NewImageFromFile("./bitcoin_price.jpg")
 	img.FillMode = canvas.ImageFillOriginal
+	desc := widget.NewLabel("Get latest bitcoin price every two minutes or by clicking the button")
+	desc.TextStyle = fyne.TextStyle{Bold: true}
 	UCL := widget.NewLabel("")
 	URL := widget.NewLabel("")
 	ECL := widget.NewLabel("")
@@ -69,6 +71,7 @@ func main() {
 	w.SetContent(
 		container.NewVBox(
 			img,
+			desc,
 			container.NewHBox(
 				container.NewVBox(UCL, ECL, GCL),
 				container.NewVBox(URL, ERL, GRL),
